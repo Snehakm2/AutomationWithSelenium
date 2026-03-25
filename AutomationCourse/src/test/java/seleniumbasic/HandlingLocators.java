@@ -31,3 +31,9 @@ public class HandlingLocators extends Base
 	}
 
 }
+//a[@data-toggle='dropdown']
+//i[@class='ace-icon fa fa-power-off']
+//(xpath = "//a[@href='javascript:void(0)' and @onclick='click_button(1)']")
+//(xpath = "//input[@id='username']"
+//xpath = "//p[text() = 'Dashboard']"
+//xpath = "//b[text()='7rmart supermarket']"
