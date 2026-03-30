@@ -11,7 +11,9 @@
         <methods>
           <include name="browserLaunch"/>
           <include name="driverQuit"/>
+          <include name="VerifyWhetherUserIsAbleToResetTheData"/>
           <include name="VerifyWhetherUserIsAbleToSearchANews"/>
+          <include name="VerifyWhetherUserIsAbleToAddANewNews"/>
         </methods>
       </class> <!-- testScripts.ManageNewsTest -->
     </classes>

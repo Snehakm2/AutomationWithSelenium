@@ -2,7 +2,9 @@ package testScripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
 
 import AutomationCore.testNGBase;
 import Pages.AdminUserPage;
@@ -10,6 +12,7 @@ import Pages.LoginPage;
 import Pages.homePage;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
+import constants.Constant;
 
 public class AdminUserTest extends testNGBase {
 	@Test(priority = 1, description = "Validating Whether User Is Able To Add A New User")
@@ -37,6 +40,9 @@ public class AdminUserTest extends testNGBase {
 		admin.enterNewPasswordOnPasswordField(newPassword);
 		admin.clickOnNewUserTypeDropDown();
 		admin.selectUserTypeFromUserTypeDropDown();
+		
+		boolean newAdminUsersSaveButton = admin.isNewAdminUsersPageDisplayed();
+		Assert.assertTrue(newAdminUsersSaveButton, Constant.AddNewAdminUserError);
 
 	}
 
@@ -60,6 +66,9 @@ public class AdminUserTest extends testNGBase {
 		admin.searchUsingUserName(newUserName);
 		admin.clickOnSearchUserTypeDropDown();
 		admin.selectFromSearchUserTypeDropDown();
+		
+		boolean searchAdminUsersSaveButton = admin.isSearchAdminUsersPageDisplayed();
+		Assert.assertTrue(searchAdminUsersSaveButton, Constant.SearchAdminUserError);
 	}
 
 	@Test(priority = 3, description = "Validating Whether User Is Able To Rest Users List")
@@ -71,12 +80,16 @@ public class AdminUserTest extends testNGBase {
 		login.enterUsernameFeild(userName);
 		login.enterPasswordFeild(password);
 		login.clickLoginButton();
-
+ 
 		homePage home = new homePage(driver);
 		home.clickOnAdminUserTile();
 
 		AdminUserPage admin = new AdminUserPage(driver);
 		admin.resetAction();
+		
+		boolean newAdminUsersSaveButton = admin.isNewAdminUsersPageDisplayed();
+		boolean searchAdminUsersSaveButton = admin.isSearchAdminUsersPageDisplayed();
+		Assert.assertEquals(!newAdminUsersSaveButton, !searchAdminUsersSaveButton, Constant.ResetAdminUserError);
 	}
 
 }

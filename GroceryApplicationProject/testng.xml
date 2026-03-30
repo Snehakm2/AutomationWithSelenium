@@ -8,10 +8,10 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="testScripts.ManageNewsTest">
-				<methods>
+				 <!-- <methods>
 					<include
 						name="VerifyWhetherUserIsAbleToResetTheData"></include>
-				</methods>
+				</methods>-->
 			</class>
 		</classes>
 	</test> <!-- Test -->

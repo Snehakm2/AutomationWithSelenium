@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 public class AdminUserPage {
 	public WebDriver driver;
 	
-	public AdminUserPage(WebDriver driver) {
+	public AdminUserPage(WebDriver driver) { 
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -53,7 +53,7 @@ public class AdminUserPage {
 		newPasswordField.sendKeys(newPassword);
 	}
 
-	public void clickOnNewUserTypeDropDown() {
+	public void clickOnNewUserTypeDropDown() { 
 		newUserTypeDropDown.click();
 	}
 
@@ -81,8 +81,19 @@ public class AdminUserPage {
 		searchUserBtn.click();
 	}
 	
-	public void resetAction() {
+	public void resetAction() 
+	{
 		resetButton.click();
+	}
+	
+	public boolean isNewAdminUsersPageDisplayed() 
+	{
+		return newUserSaveButton.isEnabled();
+	}
+
+	public boolean isSearchAdminUsersPageDisplayed() 
+	{
+		return searchUserBtn.isEnabled();
 	}
 	
 }

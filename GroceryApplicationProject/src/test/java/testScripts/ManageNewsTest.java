@@ -2,6 +2,7 @@ package testScripts;
 
 import java.io.IOException;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import AutomationCore.testNGBase;
@@ -9,6 +10,7 @@ import Pages.LoginPage;
 import Pages.ManageNewsPage;
 import Pages.homePage;
 import Utilities.ExcelUtility;
+import constants.Constant;
 
 public class ManageNewsTest extends testNGBase
 {
@@ -31,6 +33,9 @@ public class ManageNewsTest extends testNGBase
 		manageNewsPage.clickOnNewNewsButton();
 		manageNewsPage.enterNewNewsOnManageNewsField(newNewsText);
 		manageNewsPage.clickOnSaveButton();
+		
+		boolean newManageNewsSaveButton  = manageNewsPage.isManageNewsNewPageDisplayed();
+		Assert.assertFalse(newManageNewsSaveButton, Constant.AddNewManageNewsError);
 	}
 
 	@Test(priority = 2, description = "Validating Whether User Is Able To Search A News")
@@ -52,6 +57,9 @@ public class ManageNewsTest extends testNGBase
 		manageNewsPage.clickOnSearchButton();
 		manageNewsPage.searchForANews(searchNewsText);
 		manageNewsPage.clickOnSearchSubmitButton();
+		
+		boolean searchManageNewsSubmitButton = manageNewsPage.isSearchManageNewsPageDisplayed();
+		Assert.assertTrue(!searchManageNewsSubmitButton, Constant.SearchManageNewsError);
 	}
 
 	@Test(priority = 3, description = "Validating Whether User Is Able To Reset The Data")
@@ -64,11 +72,15 @@ public class ManageNewsTest extends testNGBase
 		login.enterPasswordFeild(password);
 		login.clickLoginButton();
 
-		homePage home = new homePage(driver);
+		homePage home = new homePage(driver); 
 		home.clickOnManageNewsTile();
 
 		ManageNewsPage manageNewsPage = new ManageNewsPage(driver);
 		manageNewsPage.resetAction();
+		
+		boolean searchManageNewsSubmitButton = manageNewsPage.isSearchManageNewsPageDisplayed();
+		boolean resetManageNewsTable = manageNewsPage.isResetManageNewsPageDisplayed();
+		Assert.assertEquals(searchManageNewsSubmitButton, resetManageNewsTable, Constant.ResetManageNewsError);
 	}
 
 }

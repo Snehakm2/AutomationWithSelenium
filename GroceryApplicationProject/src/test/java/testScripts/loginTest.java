@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import AutomationCore.testNGBase;
 import Pages.LoginPage;
 import Utilities.ExcelUtility;
+import constants.Constant;
 
 public class loginTest extends testNGBase {
 
@@ -22,7 +23,7 @@ public class loginTest extends testNGBase {
 		login.clickLoginButton();
 		
 		boolean dashboardDisplayed = login.isDashboardDisplayed();
-		Assert.assertTrue(dashboardDisplayed, "User was unable to login with valid credentials");
+		Assert.assertTrue(dashboardDisplayed, Constant.validCredError);
 	}
 
 	@Test(priority = 2, description = "Validating user login Valid Username and Invalid Password credentials")
@@ -36,7 +37,7 @@ public class loginTest extends testNGBase {
 		
 		String actualText = login.getPageText();
 		String expectedText = "7rmart supermarket";
-		Assert.assertEquals(actualText, expectedText, "User was able to login with Invalid Password");
+		Assert.assertEquals(actualText, expectedText, Constant.InvalidLoginPasswordError);
 
 	}
 
@@ -47,12 +48,12 @@ public class loginTest extends testNGBase {
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameFeild(userName);
 		login.enterPasswordFeild(password);
-		login.clickLoginButton();
+		login.clickLoginButton(); 
 		
 		boolean loginPageDisplayed = login.isLoginPageDisplayed();
-		Assert.assertTrue(loginPageDisplayed, "User was able to log in using Invalid Username");
+		Assert.assertTrue(loginPageDisplayed, Constant.InvalidLoginUsernameError);
 
-	}
+	} 
 
 	@Test(priority = 4, description = "Validating user login with Invalid credentials", groups = {"smoke"})
 	public void verifyUserLoginwithInvalidCredentials() throws IOException {
@@ -64,7 +65,7 @@ public class loginTest extends testNGBase {
 		login.clickLoginButton();
 		
 		boolean loginPageDisplayed = login.isLoginPageDisplayed();
-		Assert.assertFalse(!loginPageDisplayed, "Logged in with invalid creds");
+		Assert.assertFalse(!loginPageDisplayed, Constant.InvalidLoginCredError);
 
 	}
 

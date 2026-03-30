@@ -33,6 +33,11 @@ public class ManageNewsPage
 	// For Reset Option
 		@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news' and @class='btn btn-rounded btn-warning']")
 		WebElement resetButton;
+		
+		// Assertion
+		@FindBy(xpath = "//h4[text()='Manage News']") WebElement newsListHeader;
+		
+		
 
 		public void clickOnNewNewsButton() {
 			newButtonNews.click();
@@ -66,6 +71,22 @@ public class ManageNewsPage
 		public void resetAction() 
 		{
 			resetButton.click();
+		}
+		
+		// Assertion
+		public boolean isManageNewsNewPageDisplayed() 
+		{
+			return newNewsSaveButton.isDisplayed();
+		}
+
+		public boolean isSearchManageNewsPageDisplayed() 
+		{
+			return searchNewsSubmitButton.isDisplayed();
+		}
+		
+		public boolean isResetManageNewsPageDisplayed() 
+		{
+			return newsListHeader.isDisplayed();
 		}
 
 }
