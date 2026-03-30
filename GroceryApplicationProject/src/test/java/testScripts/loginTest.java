@@ -3,6 +3,7 @@ package testScripts;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 
@@ -55,10 +56,10 @@ public class loginTest extends testNGBase {
 
 	} 
 
-	@Test(priority = 4, description = "Validating user login with Invalid credentials", groups = {"smoke"})
-	public void verifyUserLoginwithInvalidCredentials() throws IOException {
-		String userName = ExcelUtility.readStringData(3, 0, "LoginPage");
-		String password = ExcelUtility.readStringData(3, 1, "LoginPage");
+	@Test(priority = 4, description = "Validating user login with Invalid credentials", groups = {"smoke"} ,dataProvider = "loginProvider")
+	public void verifyUserLoginwithInvalidCredentials(String userName,String password) throws IOException {
+		//String userName = ExcelUtility.readStringData(3, 0, "LoginPage");
+		//String password = ExcelUtility.readStringData(3, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
 		login.enterUsernameFeild(userName);
 		login.enterPasswordFeild(password);
@@ -67,6 +68,14 @@ public class loginTest extends testNGBase {
 		boolean loginPageDisplayed = login.isLoginPageDisplayed();
 		Assert.assertFalse(!loginPageDisplayed, Constant.InvalidLoginCredError);
 
-	}
+	} 
+	 @DataProvider(name = "loginProvider") 
+	 	public Object[][] getDataFromDataProvider() throws IOException { 
+	  
+	 		return new Object[][] { new Object[] { "admin", "admin22" }, new Object[] { "admin123", "123" }, 
+	 				// new Object[] {ExcelUtility.getStringData(3, 
+	 				// 0,"Login"),ExcelUtility.getStringData(3,1 ,"Login")} 
+	 		}; 
+	 	}
 
 }

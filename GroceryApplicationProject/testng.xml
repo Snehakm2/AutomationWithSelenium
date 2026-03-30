@@ -7,11 +7,11 @@
 	<parameter name="browsers" value="chrome"></parameter>
 	<test thread-count="5" name="Test">
 		<classes>
-			<class name="testScripts.ManageNewsTest">
-				 <!-- <methods>
+			<class name="testScripts.loginTest">
+				  <methods>
 					<include
-						name="VerifyWhetherUserIsAbleToResetTheData"></include>
-				</methods>-->
+						name="verifyUserLoginwithInvalidCredentials"></include>
+				</methods>
 			</class>
 		</classes>
 	</test> <!-- Test -->

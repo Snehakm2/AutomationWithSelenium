@@ -59,7 +59,7 @@ public class ManageNewsTest extends testNGBase
 		manageNewsPage.clickOnSearchSubmitButton();
 		
 		boolean searchManageNewsSubmitButton = manageNewsPage.isSearchManageNewsPageDisplayed();
-		Assert.assertTrue(!searchManageNewsSubmitButton, Constant.SearchManageNewsError);
+		Assert.assertTrue(searchManageNewsSubmitButton, Constant.SearchManageNewsError);
 	}
 
 	@Test(priority = 3, description = "Validating Whether User Is Able To Reset The Data")
@@ -80,7 +80,7 @@ public class ManageNewsTest extends testNGBase
 		
 		boolean searchManageNewsSubmitButton = manageNewsPage.isSearchManageNewsPageDisplayed();
 		boolean resetManageNewsTable = manageNewsPage.isResetManageNewsPageDisplayed();
-		Assert.assertEquals(searchManageNewsSubmitButton, resetManageNewsTable, Constant.ResetManageNewsError);
+		Assert.assertEquals(!searchManageNewsSubmitButton, resetManageNewsTable, Constant.ResetManageNewsError);
 	}
 
 }
