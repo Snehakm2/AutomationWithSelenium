@@ -12,20 +12,20 @@ import Utilities.ExcelUtility;
 import constants.Constant;
 
 public class homeTest extends testNGBase {
+	homePage home;
 	@Test(description = "Validate user is able to successfully Logout")
 	public void verifyUserIsAbletoSuccessfullyLogout() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage"); 
 
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameFeild(userName);
-		login.enterPasswordFeild(password);
-		login.clickLoginButton();
+		login.enterUsernameFeild(userName).enterPasswordFeild(password);
+		home = login.clickLoginButton();
 
 		// For Logout
-		homePage home = new homePage(driver);
+		//homePage home = new homePage(driver);
 		home.clickonAdminProfileIcon();
-		home.clickonLogoutoption();
+		login = home.clickonLogoutoption();
 		
 		String actualText = login.getPageText();
 		String expectedText = "7rmart supermarket";

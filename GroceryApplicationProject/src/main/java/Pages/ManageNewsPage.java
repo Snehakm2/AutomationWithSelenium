@@ -39,38 +39,45 @@ public class ManageNewsPage
 		
 		
 
-		public void clickOnNewNewsButton() {
+		public ManageNewsPage clickOnNewNewsButton() {
 			newButtonNews.click();
+			return this;
 		}
 
-		public void enterNewNewsOnManageNewsField(String newNewsText)
+		public ManageNewsPage enterNewNewsOnManageNewsField(String newNewsText)
 		{
 			newNewsField.sendKeys(newNewsText);
+			return this;
 		}
 
-		public void clickOnSaveButton() 
+		public ManageNewsPage clickOnSaveButton() 
 		{
 			newNewsSaveButton.click();
+			return this;
 		}
 
-		public void clickOnSearchButton() 
+		public ManageNewsPage clickOnSearchButton() 
 		{
 			searchButton.click();
+			return this;
 		}
 
-		public void searchForANews(String searchNewsText) 
+		public ManageNewsPage searchForANews(String searchNewsText) 
 		{
 			searchNewsField.sendKeys(searchNewsText);
+			return this;
 		}
 
-		public void clickOnSearchSubmitButton() 
+		public ManageNewsPage clickOnSearchSubmitButton() 
 		{
 			searchNewsSubmitButton.click();
+			return this;
 		}
 
-		public void resetAction() 
+		public ManageNewsPage resetAction() 
 		{
 			resetButton.click();
+			return this;
 		}
 		
 		// Assertion

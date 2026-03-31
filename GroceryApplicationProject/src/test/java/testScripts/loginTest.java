@@ -9,19 +9,19 @@ import org.testng.annotations.Test;
 
 import AutomationCore.testNGBase;
 import Pages.LoginPage;
+import Pages.homePage;
 import Utilities.ExcelUtility;
 import constants.Constant;
 
 public class loginTest extends testNGBase {
-
+homePage home;
 	@Test(priority = 1, description = "Validating user login with Valid credentials", groups = {"smoke"})
 	public void verifyUserLoginwithValidCredentials() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(0, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameFeild(userName);
-		login.enterPasswordFeild(password);
-		login.clickLoginButton();
+		login.enterUsernameFeild(userName).enterPasswordFeild(password);
+		home = login.clickLoginButton();
 		
 		boolean dashboardDisplayed = login.isDashboardDisplayed();
 		Assert.assertTrue(dashboardDisplayed, Constant.validCredError);
@@ -32,9 +32,7 @@ public class loginTest extends testNGBase {
 		String userName = ExcelUtility.readStringData(1, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(1, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameFeild(userName);
-		login.enterPasswordFeild(password);
-		login.clickLoginButton();
+		login.enterUsernameFeild(userName).enterPasswordFeild(password).clickLoginButton();
 		
 		String actualText = login.getPageText();
 		String expectedText = "7rmart supermarket";
@@ -47,9 +45,7 @@ public class loginTest extends testNGBase {
 		String userName = ExcelUtility.readStringData(2, 0, "LoginPage");
 		String password = ExcelUtility.readStringData(2, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameFeild(userName);
-		login.enterPasswordFeild(password);
-		login.clickLoginButton(); 
+		login.enterUsernameFeild(userName).enterPasswordFeild(password).clickLoginButton(); 
 		
 		boolean loginPageDisplayed = login.isLoginPageDisplayed();
 		Assert.assertTrue(loginPageDisplayed, Constant.InvalidLoginUsernameError);
@@ -61,9 +57,7 @@ public class loginTest extends testNGBase {
 		//String userName = ExcelUtility.readStringData(3, 0, "LoginPage");
 		//String password = ExcelUtility.readStringData(3, 1, "LoginPage");
 		LoginPage login = new LoginPage(driver);
-		login.enterUsernameFeild(userName);
-		login.enterPasswordFeild(password);
-		login.clickLoginButton();
+		login.enterUsernameFeild(userName).enterPasswordFeild(password).clickLoginButton();
 		
 		boolean loginPageDisplayed = login.isLoginPageDisplayed();
 		Assert.assertFalse(!loginPageDisplayed, Constant.InvalidLoginCredError);

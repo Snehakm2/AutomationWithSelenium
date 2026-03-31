@@ -41,49 +41,59 @@ public class AdminUserPage {
 	WebElement resetButton;
 	
 	
-	public void clickOnNewButton() {
+	public AdminUserPage clickOnNewButton() {
 		newButton.click();
+		return this;
 	}
 
-	public void enterNewUserNameOnUserNameField(String newUserName) {
+	public AdminUserPage enterNewUserNameOnUserNameField(String newUserName) {
 		newUserField.sendKeys(newUserName);
+		return this;
 	}
 
-	public void enterNewPasswordOnPasswordField(String newPassword) {
+	public AdminUserPage enterNewPasswordOnPasswordField(String newPassword) {
 		newPasswordField.sendKeys(newPassword);
+		return this;
 	}
 
-	public void clickOnNewUserTypeDropDown() { 
+	public AdminUserPage clickOnNewUserTypeDropDown() { 
 		newUserTypeDropDown.click();
+		return this;
 	}
 
-	public void selectUserTypeFromUserTypeDropDown() {
+	public AdminUserPage selectUserTypeFromUserTypeDropDown() {
 		Select select = new Select(newUserTypeDropDown);
 		select.selectByIndex(2);
 		newUserSaveButton.click();
+		return this;
 	}
 	
-	public void clickOnSearchButton() {
+	public AdminUserPage clickOnSearchButton() {
 		searchButton.click();
+		return this;
 	}
 
-	public void searchUsingUserName(String newUserName) {
+	public AdminUserPage searchUsingUserName(String newUserName) {
 		searchUserField.sendKeys(newUserName);
+		return this;
 	}
 
-	public void clickOnSearchUserTypeDropDown() {
+	public AdminUserPage clickOnSearchUserTypeDropDown() {
 		searchUserTypeDropDown.click();
+		return this;
 	}
 
-	public void selectFromSearchUserTypeDropDown() {
+	public AdminUserPage selectFromSearchUserTypeDropDown() {
 		Select select = new Select(searchUserTypeDropDown);
 		select.selectByIndex(2);
 		searchUserBtn.click();
+		return this;
 	}
 	
-	public void resetAction() 
+	public AdminUserPage resetAction() 
 	{
 		resetButton.click();
+		return this;
 	}
 	
 	public boolean isNewAdminUsersPageDisplayed() 

@@ -19,18 +19,23 @@ public class LoginPage {
 	@FindBy(xpath = "//p[text() = 'Dashboard']") WebElement dashboard;
 	@FindBy(xpath = "//b[text()='7rmart supermarket']") WebElement pageText;
 
-	public void enterUsernameFeild(String userName)
+	public LoginPage enterUsernameFeild(String userName)
 	{
 		userNameField.sendKeys(userName);
+		return this;
 	}
-	public void enterPasswordFeild(String password)
+	public LoginPage enterPasswordFeild(String password)
 	{
 		passwordField.sendKeys(password);
+		return this;
 	}
-	public void clickLoginButton()
+	public homePage clickLoginButton()
 	{
 		submitButton.click();
+		return new homePage(driver);
 	}
+	
+	//Assertion
 	public boolean isDashboardDisplayed() 
 	{
 		return dashboard.isDisplayed();
