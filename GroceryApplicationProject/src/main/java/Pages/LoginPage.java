@@ -5,8 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import Utilities.waitUtility;
+
 public class LoginPage {
 	public WebDriver driver;
+	waitUtility wait = new waitUtility();
 
 	public LoginPage(WebDriver driver) 
 	{
@@ -31,10 +34,11 @@ public class LoginPage {
 	}
 	public homePage clickLoginButton()
 	{
+		wait.waitUntilElementToBeClickable(driver, submitButton);
 		submitButton.click();
 		return new homePage(driver);
 	}
-	
+;
 	//Assertion
 	public boolean isDashboardDisplayed() 
 	{

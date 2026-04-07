@@ -6,8 +6,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import Utilities.PageUtility;
+import Utilities.waitUtility;
+
 public class AdminUserPage {
 	public WebDriver driver;
+	PageUtility page = new PageUtility();
+	waitUtility wait = new waitUtility();
 	
 	public AdminUserPage(WebDriver driver) { 
 		this.driver = driver;
@@ -41,7 +46,9 @@ public class AdminUserPage {
 	WebElement resetButton;
 	
 	
-	public AdminUserPage clickOnNewButton() {
+	public AdminUserPage clickOnNewButton() 
+	{
+		wait.waitUntilElementToBeClickable(driver, newButton);
 		newButton.click();
 		return this;
 	}
@@ -61,9 +68,11 @@ public class AdminUserPage {
 		return this;
 	}
 
-	public AdminUserPage selectUserTypeFromUserTypeDropDown() {
-		Select select = new Select(newUserTypeDropDown);
-		select.selectByIndex(2);
+	public AdminUserPage selectUserTypeFromUserTypeDropDown() 
+	{
+		page.selectDropdownWithIndex(newUserTypeDropDown, 2);
+		//Select select = new Select(newUserTypeDropDown);
+		//select.selectByIndex(2);
 		newUserSaveButton.click();
 		return this;
 	}
@@ -83,9 +92,11 @@ public class AdminUserPage {
 		return this;
 	}
 
-	public AdminUserPage selectFromSearchUserTypeDropDown() {
-		Select select = new Select(searchUserTypeDropDown);
-		select.selectByIndex(2);
+	public AdminUserPage selectFromSearchUserTypeDropDown() 
+	{
+		page.selectDropdownWithIndex(searchUserTypeDropDown, 2);
+		//Select select = new Select(searchUserTypeDropDown);
+		//select.selectByIndex(2);
 		searchUserBtn.click();
 		return this;
 	}
