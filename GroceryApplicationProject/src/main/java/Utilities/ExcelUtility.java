@@ -29,7 +29,7 @@ public class ExcelUtility {
  		f = new FileInputStream(Constant.TestDataFile); 
  		w = new XSSFWorkbook(f); 
  		sh = w.getSheet(sheet); 
- 		XSSFRow r = sh.getRow(row); 
+ 		XSSFRow r = sh.getRow(row);
  		XSSFCell c = r.getCell(col); 
  		int val =   (int) c.getNumericCellValue();  //convert double to int using typecasting 
  		return String.valueOf(val);   //convert int to string using valueOf() method 
