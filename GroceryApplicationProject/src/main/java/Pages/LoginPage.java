@@ -32,11 +32,11 @@ public class LoginPage {
 		passwordField.sendKeys(password);
 		return this;
 	}
-	public homePage clickLoginButton()
+	public HomePage clickLoginButton()
 	{
 		wait.waitUntilElementToBeClickable(driver, submitButton);
 		submitButton.click();
-		return new homePage(driver);
+		return new HomePage(driver);
 	}
 ;
 	//Assertion

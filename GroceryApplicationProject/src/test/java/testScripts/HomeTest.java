@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 
 import AutomationCore.testNGBase;
 import Pages.LoginPage;
-import Pages.homePage;
+import Pages.HomePage;
 import Utilities.ExcelUtility;
 import constants.Constant;
 
-public class homeTest extends testNGBase {
-	homePage home;
+public class HomeTest extends testNGBase {
+	HomePage home;
 	@Test(description = "Validate user is able to successfully Logout")
 	public void verifyUserIsAbletoSuccessfullyLogout() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");

@@ -9,13 +9,13 @@ import org.testng.annotations.Test;
 import AutomationCore.testNGBase;
 import Pages.AdminUserPage;
 import Pages.LoginPage;
-import Pages.homePage;
+import Pages.HomePage;
 import Utilities.ExcelUtility;
 import Utilities.FakerUtility;
 import constants.Constant;
 
 public class AdminUserTest extends testNGBase {
-	homePage home;
+	HomePage home;
 	AdminUserPage admin;
 	@Test(priority = 1, description = "Validating Whether User Is Able To Add A New User")
 	public void VerifyWhetherUserIsAbleToAddANewUser() throws IOException {

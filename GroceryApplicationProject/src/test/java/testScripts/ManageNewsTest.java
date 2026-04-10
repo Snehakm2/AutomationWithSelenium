@@ -8,14 +8,14 @@ import org.testng.annotations.Test;
 import AutomationCore.testNGBase;
 import Pages.LoginPage;
 import Pages.ManageNewsPage;
-import Pages.homePage;
+import Pages.HomePage;
 import Utilities.ExcelUtility;
 import constants.Constant;
 
 public class ManageNewsTest extends testNGBase
 {
 	ManageNewsPage manageNewsPage;
-	homePage home;
+	HomePage home;
 	
 	@Test(priority = 1, description = "Validating Whether User Is Able To Add A New News")
 	public void VerifyWhetherUserIsAbleToAddANewNews() throws IOException {

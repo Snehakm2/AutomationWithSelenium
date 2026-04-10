@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 import AutomationCore.testNGBase;
 import Pages.LoginPage;
-import Pages.homePage;
+import Pages.HomePage;
 import Utilities.ExcelUtility;
 import constants.Constant;
 
-public class loginTest extends testNGBase {
-homePage home;
+public class LoginTest extends testNGBase {
+HomePage home;
 	@Test(priority = 1, description = "Validating user login with Valid credentials", groups = {"smoke"})
 	public void verifyUserLoginwithValidCredentials() throws IOException {
 		String userName = ExcelUtility.readStringData(0, 0, "LoginPage");
